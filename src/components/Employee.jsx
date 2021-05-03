@@ -5,19 +5,20 @@ import axios from "axios";
 function Employee() {
   const [data, setData] = useState([]);
   const [Input, setInput] = useState("");
+  const [data1, setdata1] = useState([])
 
   function handleChange(event) {
     setInput(event.target.value);
   }
 
   async function refreshData() {
-    console.log("You clicked me");
-      const userData = await axios.get("https://randomuser.me/api/?results=50");
-      setData(userData.data.results);
+    console.log(data1);
+      setData(data1);
     }
 
   function handleSubmit(event) {  
     event.preventDefault();
+    setdata1(data)
     let x = data.filter((obj) => {
       let name = obj.name.first.toLowerCase()
       let search = Input.toLowerCase()
@@ -32,7 +33,9 @@ function Employee() {
 
   useEffect(() => {
     async function fetchData() {
-      const userData = await axios.get("https://randomuser.me/api/?results=50");
+      const userData = await axios.get("https://randomuser.me/api/?results=50&nat=au,us");
+      console.log(userData.data.results);
+      setdata1(userData.data.results)
       setData(userData.data.results);
     }
     fetchData();
