@@ -43,7 +43,7 @@ function Employee() {
 
   return (
     <div>
-      <h1>Emplyee Search</h1>
+      <h1>Employee Search</h1>
       <div className="input-group mb-3">
         <div className="input-group-prepend"></div>
         <form className="w-100"onSubmit={handleSubmit}>
